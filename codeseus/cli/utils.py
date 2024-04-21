@@ -54,7 +54,7 @@ def select_file_or_dir(
         elif select_file_or_dir[0] == "Done":
             return None
         else:
-            if os.path.isdir(select_file_or_dir[0]):
+            if os.path.isdir(os.path.join(select_path,select_file_or_dir[0])):
                 return select_file_or_dir[0]
             else:
                 collected_files_dir.append(
