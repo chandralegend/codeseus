@@ -1,6 +1,10 @@
 import os
+
 from typing import List, Tuple, Optional
+
 from prompt_toolkit.shortcuts import radiolist_dialog
+from prompt_toolkit.styles import Style
+
 
 
 
@@ -14,7 +18,15 @@ def select_file_or_dir(select_path: str, action: str) -> Optional[str]:
     select_file_or_dir = radiolist_dialog(
         title="Codeseus",
         text=f"Select a file or folder to {action} in {select_path}",
-        values=list_to_options(options)
+        values=list_to_options(options),
+                style=Style.from_dict({
+        'dialog': 'bg:#D6D1D1',
+         'checkbox': '#DD31EB',
+         'dialog.body': 'bg:#F1EDED',
+        'button': 'bg:#E0CEBD',
+         'frame.label': '#2881F2',
+        'dialog.body label': '#31AAEB',
+        })
     ).run()
 
     if select_file_or_dir is None:
@@ -27,6 +39,14 @@ def select_file_or_dir(select_path: str, action: str) -> Optional[str]:
         radiolist_dialog(
             title="Codeseus",
             text=f"Are you sure you want to {action} {select_file_or_dir}",
-            values=list_to_options(["Yes", "No"])
+            values=list_to_options(["Yes", "No"]),
+                    style=Style.from_dict({
+        'dialog': 'bg:#D6D1D1',
+         'checkbox': '#DD31EB',
+         'dialog.body': 'bg:#F1EDED',
+        'button': 'bg:#E0CEBD',
+         'frame.label': '#2881F2',
+        'dialog.body label': '#31AAEB',
+        })
         ).run()
         return select_file_or_dir

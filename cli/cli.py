@@ -1,6 +1,9 @@
 import os
+
 from prompt_toolkit import prompt
 from prompt_toolkit.shortcuts import radiolist_dialog
+from prompt_toolkit.styles import Style
+
 from utils import  select_file_or_dir
 
 def main():
@@ -17,7 +20,15 @@ def main():
     action = radiolist_dialog(
         title="Welcome to Codeseus",
         text="Your odyssey to pristine code ends here. \nSimply provide instructions, and codeseus will refactor, repair, test, and review your codebase with divine precision.\nSelect what you want to do",
-        values=options
+        values=options,
+        style=Style.from_dict({
+        'dialog': 'bg:#D6D1D1',
+         'checkbox': '#DD31EB',
+         'dialog.body': 'bg:#F1EDED',
+        'button': 'bg:#E0CEBD',
+         'frame.label': '#2881F2',
+        'dialog.body label': '#31AAEB',
+        })
     ).run()
 
     if action:
