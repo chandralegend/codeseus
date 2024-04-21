@@ -8,6 +8,6 @@
 
 - Prompts users to navigate through directories and select specific files or folders.
 
- ![CLI Interface Start](image-1.png)
+![CLI Interface Start](../../public/public/cli-interface-start.png)
 
-![CLI Interface](image.png)
+![CLI Interface](../../public/public/cli-file-selection.png)
