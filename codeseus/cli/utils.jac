@@ -5,7 +5,7 @@ import:py from typing, List, Optional, Tuple;
 import:py from prompt_toolkit.shortcuts, checkboxlist_dialog;
 import:py from prompt_toolkit.styles, Style;
 
-"""Convert the list of strings into a 
+"""Convert the list of strings into a
 list of tuples for radiolist_dialog Options."""
 can list_to_options(lst: List[str]) -> List[Tuple[(str, str)]] {
     return [('Select All', '*')] + [('Back', '..')] + [('item', 'item')  for item in lst] + [('Done', 'Done')];
