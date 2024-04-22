@@ -1,6 +1,7 @@
 """CLI Implementation."""
 
 import os
+import subprocess
 
 from codeseus.cli.utils import select_file_or_dir
 
@@ -8,7 +9,7 @@ from prompt_toolkit.shortcuts import radiolist_dialog
 from prompt_toolkit.styles import Style
 
 
-def main() -> None:
+def py_main() -> None:
     """CLI Implementation."""
     options = [
         ("Refactor", "refactor"),
@@ -67,5 +68,11 @@ def main() -> None:
         print("No option selected.")
 
 
-if __name__ == "__main__":
-    main()
+def main() -> None:
+    """CLI Entry Point."""
+    try:  # B001,
+        subprocess.run(
+            ["jac", "run", os.path.join(os.getcwd(), "codeseus/cli/cli.jac")]
+        )
+    except subprocess.CalledProcessError:
+        py_main()
