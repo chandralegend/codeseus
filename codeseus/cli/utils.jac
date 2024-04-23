@@ -8,13 +8,22 @@ import:py from prompt_toolkit.styles, Style;
 """Convert the list of strings into a
 list of tuples for radiolist_dialog Options."""
 can list_to_options(lst: List[str]) -> List[Tuple[(str, str)]] {
-    return [('Select All', '*')] + [('Back', '..')] + [('item', 'item')  for item in lst] + [('Done', 'Done')];
+    return [('Select All', '*')] + [('Back', '..')] + [(item, item)  for item in lst] + [('Done', 'Done')];
 }
 
 """Prompts the user to select a file or directory from the given path using a radiolist_dialog."""
 can select_file_or_dir(select_path: str, action: str, collected_files_dir: List[str]) -> Optional[str] {
     options = os.listdir(select_path);
-    select_file_or_dir = checkboxlist_dialog(title='Codeseus', text='selected:' + ''.join(collected_files_dir) + f"Select a file or folder to{action} in {select_path}", values=list_to_options(options), style=Style.from_dict({'dialog': 'bg:#D6D1D1', 'checkbox': '#DD31EB', 'dialog.body': 'bg:#F1EDED', 'button': 'bg:#E0CEBD', 'frame.label': ' #2881F2', 'dialog.body label': '#31AAEB'})).run();
+    select_file_or_dir = checkboxlist_dialog(
+        title='Codeseus',
+        text='selected:' + ''.join(collected_files_dir) + f"Select a file or folder to{action} in {select_path}",
+        values=list_to_options(options),
+        style=Style.from_dict(
+            {'dialog': 'bg:#D6D1D1', 'checkbox': '#DD31EB', 'dialog.body': 'bg:#F1EDED',
+            'button': 'bg:#E0CEBD', 'frame.label': ' #2881F2', 'dialog.body label': '#31AAEB'}
+        )
+    ).run();
+
     if select_file_or_dir is None {
         return None;
     } elif len(select_file_or_dir) == 1 {

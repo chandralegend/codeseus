@@ -11,13 +11,13 @@ setup(
     name="codeseus",
     version=VERSION,
     packages=find_packages(include=["codeseus", "codeseus.*"]),
-    install_requires=["prompt_toolkit"],
+    install_requires=["prompt_toolkit", "jaclang"],
     package_data={
         "": ["*.ini"],
     },
     entry_points={
         "console_scripts": [
-            "codeseus = codeseus.cli.cli:main",
+            "codeseus = codeseus.cli:main",
         ],
     },
     author="Chandra & Kugeshan",
