@@ -1,4 +1,8 @@
-# Codeseus
+<div align="center">
+  <img src="public/codeseus.png" alt="Codeseus Logo" width="100" height="100">
+  <h1>Codeseus</h1>
+</div>
+
  Your odyssey to pristine code ends here. Simply provide instructions, and codeseus will `refactor`, `repair`, `test`, and `review` your codebase with divine precision.
 
 ## Features
