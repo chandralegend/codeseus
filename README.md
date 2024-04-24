@@ -3,6 +3,7 @@
   <h1>Codeseus</h1>
 </div>
 
+## Introduction
  Your odyssey to pristine code ends here. Simply provide instructions, and codeseus will `refactor`, `repair`, `test`, and `review` your codebase with divine precision.
 
 ## Features
